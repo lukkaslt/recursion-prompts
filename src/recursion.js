@@ -25,7 +25,8 @@ const arraySum = function ( list ) {
 }
 
 // 4. Check if a number is even.
-var isEven = function(n) {
+var isEven = function( n ) {
+  return !n && true || !isEven( n-1 );
 };
 
 // 5. Sum all integers below a given integer.
