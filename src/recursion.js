@@ -18,8 +18,11 @@ var sum = function([ x, ...xs ], acc=0) {
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
-var arraySum = function(array) {
-};
+const arraySum = function ( list ) { 
+  return ( function sum( [x, ...xs ], acc=0 ) {
+    return x !== void 0 && sum(xs, acc+x) || acc;
+  }( list.reduce( ( a, b ) => a.concat( Array.isArray( b ) ? arraySum(b) : b), [] ) ) )
+}
 
 // 4. Check if a number is even.
 var isEven = function(n) {
