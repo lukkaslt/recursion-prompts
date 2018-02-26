@@ -7,21 +7,21 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function( n, acc=1 ) {
-  return ( !!n ) && factorial(n-1, n*acc) || acc
+  return ( !!n ) && factorial( n-1, n*acc ) || acc
 };
 
 // 2. Compute the sum of an array of integers.
 // sum([1,2,3,4,5,6]); // 21
-var sum = function([ x, ...xs ], acc=0) {
+var sum = function( [ x, ...xs ], acc=0 ) {
   return ( x !== void 0 ) && sum( xs, x + acc ) || acc;
 };
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
 const arraySum = function ( list ) { 
-  return ( function sum( [x, ...xs ], acc=0 ) {
-    return x !== void 0 && sum(xs, acc+x) || acc;
-  }( list.reduce( ( a, b ) => a.concat( Array.isArray( b ) ? arraySum(b) : b), [] ) ) )
+  return ( function ( listAux ) {
+    return sum( listAux );
+  }( list.reduce( ( a, b ) => a.concat( Array.isArray( b ) ? arraySum( b ) : b), [] ) ) )
 }
 
 // 4. Check if a number is even.
