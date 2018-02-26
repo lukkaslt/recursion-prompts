@@ -18,7 +18,7 @@ var sum = function( [ x, ...xs ], acc=0 ) {
 
 // 3. Sum all numbers in an array containing nested arrays.
 // arraySum([1,[2,3],[[4]],5]); // 15
-const arraySum = function ( list ) { 
+var arraySum = function ( list ) { 
   return ( function ( listAux ) {
     return sum( listAux );
   }( list.reduce( ( a, b ) => a.concat( Array.isArray( b ) ? arraySum( b ) : b), [] ) ) )
@@ -26,7 +26,7 @@ const arraySum = function ( list ) {
 
 // 4. Check if a number is even.
 var isEven = function( n ) {
-  return !n && true || !isEven( n-1 );
+  return !n || !isEven( n-1 );
 };
 
 // 5. Sum all integers below a given integer.
