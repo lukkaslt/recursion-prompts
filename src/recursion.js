@@ -7,7 +7,7 @@
 // Example: 5! = 5 x 4 x 3 x 2 x 1 = 120
 // factorial(5); // 120
 var factorial = function( n, acc=1 ) {
-  return ( !!n ) && factorial( n-1, n*acc ) || acc
+  return ( !!n ) && factorial( n-1, n*acc ) || acc;
 };
 
 // 2. Compute the sum of an array of integers.
@@ -38,7 +38,8 @@ var sumBelow = function( n ) {
 
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
-var range = function(x, y) {
+var range = function( x, y ) {
+  return ( x < y-1 ) && [ x+1, ...range( x+1, y ) ];
 };
 
 // 7. Compute the exponent of a number.
