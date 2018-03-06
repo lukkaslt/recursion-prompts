@@ -39,7 +39,9 @@ var sumBelow = function( n ) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function( x, y ) {
-  return ( x < y-1 ) && [ x+1, ...range( x+1, y ) ];
+  return ( x < y-1 ) && [ x+1, ...range( x+1, y ) ]
+    ||   ( y+1 < x ) && [ x-1, ...range( x-1, y ) ] 
+    ||   [];
 };
 
 // 7. Compute the exponent of a number.
